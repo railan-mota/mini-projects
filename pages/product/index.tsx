@@ -9,13 +9,13 @@ const ProductPage = () => {
   return (
     <>
       <HeadInfo title={title} description={description} />
-      <div className='min-h-hero flex justify-center items-center mx-4 sm:mx-10'>
-        <div className='flex flex-col md:flex-row items-center bg-slate-50 dark:bg-dark-800 p-4 shadow-2xl dark:shadow-dark-800 rounded-xl text-black dark:text-dark-100 my-4  w-fit'>
+      <div className='min-h-hero flex justify-center items-center mx-10 '>
+        <div className='flex flex-col min-[900px]:flex-row items-center bg-slate-50 dark:bg-dark-800 p-4 shadow-2xl dark:shadow-dark-800 rounded-xl text-black dark:text-dark-100 my-4  w-[400px] min-[900px]:w-[850px]'>
           <div className='mx-auto  bg-dark-100 dark:bg-dark-700 rounded-md overflow-hidden'>
             <Image
               src={Tshirt}
               alt='Dress'
-              className='hover:scale-105  w-[calc(100%_-_60px)] mx-auto  md:w-full'
+              className='hover:scale-105  w-[calc(100%_-_60px)] mx-auto  min-[900px]:w-full'
             />
           </div>
           <div className='flex flex-col items-center md:items-start p-6 min-w-fit'>
