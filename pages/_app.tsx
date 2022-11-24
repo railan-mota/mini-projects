@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property='og:type' content='website' />
         <meta
           property='og:image'
-          content='https://i.ibb.co/MSq70g8/Screenshot-from-2022-11-23-22-05-13.png'
+          content='https://i.ibb.co/MSq70g8/Screenshot-from-2022-11-23-22-05-13.png?2'
         />
         <meta name='twitter:card' content='summary' />
         <meta name='twitter:creator' content='@devRailan' />
