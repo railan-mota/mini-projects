@@ -33,10 +33,7 @@ export default function App({ Component, pageProps }: AppProps) {
           content='Railan | Mini-Projects | NodeJS - Tailwind |'
         />
         <meta property='og:type' content='website' />
-        <meta
-          property='og:image'
-          content='https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=620&q=80'
-        />
+        <meta property='og:image' content='/website.jpeg' />
         <meta name='twitter:card' content='summary' />
         <meta name='twitter:creator' content='@devRailan' />
         <link rel='icon' href='favicon.svg' />
