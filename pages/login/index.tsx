@@ -45,7 +45,7 @@ const LoginPage = () => {
                 Forgot Password?
               </span>
               <button className='px-5 py-3 text-sm rounded-md bg-red-700 hover:bg-red-500 text-dark-200 w-full lg:w-1/2  md:mt-0 md:h-fit'>
-                Sing In
+                Sign In
               </button>
             </div>
           </div>
