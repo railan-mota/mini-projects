@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name='google' content='notranslate' key='notranslate' />
         <meta
           property='og:title'
-          content='Railan | Mini-Projects | NodeJS - Tailwind |'
+          content='Railan | Mini-Projects | NextJS - Typescript - Tailwind '
         />
         <meta property='og:type' content='website' />
         <meta
