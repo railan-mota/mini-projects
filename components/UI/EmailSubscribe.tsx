@@ -9,6 +9,7 @@ const EmailSubscribe = () => {
 
   const [showToast, setShowToast] = useState(false);
   const [enteredEmail, setEnteredEmail] = useState('');
+  const [isCheking, setIsChecking] = useState(false);
   const [isInitial, setIsInitial] = useState(false);
 
   const [emailIsValid, setEmailIsValid] = useState(false);
@@ -30,6 +31,7 @@ const EmailSubscribe = () => {
     }
 
     const validation = setTimeout(() => {
+      setIsChecking(false);
       if (enteredEmail.includes('@') && enteredEmail.trim().length > 5) {
         setEmailIsValid(true);
       } else {
@@ -39,6 +41,7 @@ const EmailSubscribe = () => {
 
     return () => {
       clearInterval(validation);
+      setIsChecking(true);
     };
   }, [enteredEmail, isInitial, emailIsValid]);
 
@@ -92,17 +95,17 @@ const EmailSubscribe = () => {
               value={enteredEmail}
               onChange={emailInputChangeHandler}
               className={`py-2 px-4 text-center md:text-left border-2  dark:bg-dark-800  dark:border-dark-600 placeholder:text-sm w-full focus:outline-none placeholder:text-center ${
-                !emailIsValid && isInitial
+                !emailIsValid && isInitial && !isCheking
                   ? ' border-red-600 placeholder:text-red-400'
                   : ''
               }`}
             />
             <div
               className={`text-xs h-4 text-red-700 ${
-                !emailIsValid && isInitial ? 'animate-alert' : ''
+                !emailIsValid && isInitial && !isCheking ? 'animate-alert' : ''
               }`}
             >
-              {!emailIsValid && isInitial ? 'Invalid Email' : ''}
+              {!emailIsValid && isInitial && !isCheking ? 'Invalid Email' : ''}
             </div>
             <button
               className='px-5 py-3 text-sm rounded-md bg-red-700 hover:bg-red-500 text-white disabled:cursor-not-allowed disabled:hover:bg-red-700'

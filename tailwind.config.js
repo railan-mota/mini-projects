@@ -46,6 +46,7 @@ module.exports = {
       animation: {
         progress: 'progress 3s linear forwards',
         alert: 'alert 250ms linear forwards 2',
+        add: 'pulse 300s linear forwards',
       },
     },
   },
