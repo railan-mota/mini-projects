@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import HeadInfo from '../../components/HeadInfo';
-import { ScaleIcon, HeartIcon } from '@heroicons/react/24/outline';
+import { ShoppingCartIcon, HeartIcon } from '@heroicons/react/24/outline';
 import Tshirt from '../../public/dress.png';
 
 const ProductPage = () => {
@@ -39,7 +39,7 @@ const ProductPage = () => {
             </div>
             <div className='w-full flex  flex-col  md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-3  '>
               <button className='border-2 w-full md:w-fit  rounded-md border-dark-400 px-5 py-3 shadow-sm dark:shadow-dark-700 hover:shadow-lg hover:-translate-y-0.5'>
-                <ScaleIcon className='w-6 text-dark-700 dark:text-dark-400 inline-block mr-2 group-hover:text-dark-100' />
+                <ShoppingCartIcon className='w-6 text-dark-700 dark:text-dark-400 inline-block mr-2 group-hover:text-dark-100' />
                 Add to cart
               </button>
               <button className='border-2 w-full md:w-fit rounded-md border-dark-400 px-5 py-3 shadow-sm dark:shadow-dark-700 hover:shadow-lg hover:-translate-y-0.5'>

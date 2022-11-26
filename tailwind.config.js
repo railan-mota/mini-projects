@@ -33,6 +33,20 @@ module.exports = {
         highlightDark: '#dc2626', // red-600
         highlightLight: '#e11d48', // rose-600
       },
+      keyframes: {
+        progress: {
+          '100%': { right: '100%' },
+        },
+        alert: {
+          '25%': { transform: 'translateX(-2px)' },
+          '75%': { transform: 'translateX(2px)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+      },
+      animation: {
+        progress: 'progress 3s linear forwards',
+        alert: 'alert 250ms linear forwards 2',
+      },
     },
   },
   plugins: [],
