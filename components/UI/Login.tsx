@@ -6,7 +6,7 @@ const Login = ({ onClose }: { onClose: () => void }) => {
   return (
     <div className='md:flex  bg-slate-50 dark:bg-dark-800  overflow-hidden shadow-2xl dark:shadow-dark-800 rounded-xl text-black dark:text-dark-100 my-4 w-fit'>
       <div className='py-6 px-16 w-fit relative'>
-        <button className='absolute right-4 top-4 md:hidden'>
+        <button className='absolute right-4 top-4 md:hidden' onClick={onClose}>
           <XMarkIcon className='w-8 bg-dark-300 dark:bg-dark-400 rounded-full p-[6px]' />
         </button>
         <span className='font-bold text-2xl text-left font-serif block mb-6'>

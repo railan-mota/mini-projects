@@ -1,67 +1,36 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
+import useInput from '../../hooks/use-input';
 import Image from 'next/image';
 import ToastSuccess from './ToastSuccess';
-
 import CanadaPic from '../../public/canada.jpg';
 
+const validateEmail = (value: string) =>
+  value.includes('@') && value.trim().length > 5;
+
 const EmailSubscribe = () => {
-  const emailInputRef = useRef<HTMLInputElement>(null);
-
   const [showToast, setShowToast] = useState(false);
-  const [enteredEmail, setEnteredEmail] = useState('');
-  const [isCheking, setIsChecking] = useState(false);
-  const [isInitial, setIsInitial] = useState(false);
 
-  const [emailIsValid, setEmailIsValid] = useState(false);
+  const {
+    value: enteredEmail,
+    hasError: emailInputIsInvalid,
+    valueInputChangeHandler: emailInputChangeHandler,
+    reset: resetEmailInput,
+  } = useInput(validateEmail);
 
-  const emailInputChangeHandler = () => {
-    if (!isInitial) {
-      setIsInitial(true);
-    }
-    setEnteredEmail(emailInputRef.current!.value);
-  };
+  const enteredEmailIsValid =
+    enteredEmail.includes('@') && enteredEmail.trim().length > 5;
 
-  useEffect(() => {
-    if (!isInitial) {
-      return;
-    }
-
-    if (enteredEmail === '') {
-      setIsInitial(false);
-    }
-
-    const validation = setTimeout(() => {
-      setIsChecking(false);
-      if (enteredEmail.includes('@') && enteredEmail.trim().length > 5) {
-        setEmailIsValid(true);
-      } else {
-        setEmailIsValid(false);
-      }
-    }, 500);
-
-    return () => {
-      clearInterval(validation);
-      setIsChecking(true);
-    };
-  }, [enteredEmail, isInitial, emailIsValid]);
-
-  const clickHandler = (event: React.FormEvent) => {
+  const fomrSubmissionHandler = (event: React.FormEvent) => {
     event.preventDefault();
 
-    if (enteredEmail.includes('@') && enteredEmail.trim().length > 5) {
+    if (enteredEmailIsValid) {
       if (!showToast) {
         setShowToast(true);
-
-        setEnteredEmail('');
-        setIsInitial(false);
+        resetEmailInput();
 
         setTimeout(() => {
           setShowToast(false);
         }, 3500);
-
-        emailInputRef.current!.value = '';
-      } else {
-        return;
       }
     }
   };
@@ -83,10 +52,12 @@ const EmailSubscribe = () => {
             Learn all must-knows about Canada. Sing up for our newsletter.
           </p>
 
-          <form className={`flex flex-col mt-6 space-y-1`}>
+          <form
+            className={`flex flex-col mt-6 space-y-1`}
+            onSubmit={fomrSubmissionHandler}
+          >
             <label htmlFor='email' />
             <input
-              ref={emailInputRef}
               type='email'
               name='email'
               id='email'
@@ -95,23 +66,19 @@ const EmailSubscribe = () => {
               value={enteredEmail}
               onChange={emailInputChangeHandler}
               className={`py-2 px-4 text-center md:text-left border-2  dark:bg-dark-800  dark:border-dark-600 placeholder:text-sm w-full focus:outline-none placeholder:text-center ${
-                !emailIsValid && isInitial && !isCheking
+                emailInputIsInvalid
                   ? ' border-red-600 placeholder:text-red-400'
                   : ''
               }`}
             />
             <div
               className={`text-xs h-4 text-red-700 ${
-                !emailIsValid && isInitial && !isCheking ? 'animate-alert' : ''
+                emailInputIsInvalid ? 'animate-alert' : ''
               }`}
             >
-              {!emailIsValid && isInitial && !isCheking ? 'Invalid Email' : ''}
+              {emailInputIsInvalid ? 'Invalid Email' : ''}
             </div>
-            <button
-              className='px-5 py-3 text-sm rounded-md bg-red-700 hover:bg-red-500 text-white disabled:cursor-not-allowed disabled:hover:bg-red-700'
-              onClick={clickHandler}
-              disabled={enteredEmail === '' || !emailIsValid}
-            >
+            <button className='px-5 py-3 text-sm rounded-md bg-red-700 hover:bg-red-500 text-white'>
               Subscribe
             </button>
           </form>

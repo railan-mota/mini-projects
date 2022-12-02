@@ -20,11 +20,8 @@ const ToastSuccess = ({ message }: { message: string }) => {
     [setIsShow];
 
   const cickCloseHandlert = () => {
-    console.log('fechei no crique');
     setIsShow(false);
   };
-
-  console.log('fui renderizado');
 
   return (
     <Transition

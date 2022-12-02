@@ -93,7 +93,7 @@ const ProductPage = () => {
                 {cart ? (
                   <>
                     <ShoppingCartIcon className='w-6 text-dark-700 dark:text-dark-400 inline-block mr-2 group-hover:text-dark-100' />
-                    Remove to cart
+                    Remove from cart
                   </>
                 ) : (
                   <>
@@ -109,7 +109,7 @@ const ProductPage = () => {
                 {wishlist ? (
                   <>
                     <HeartFull className='w-6 text-highlightLight dark:text-highlightDark inline-block mr-2' />
-                    Remove to wishlist
+                    Remove from wishlist
                   </>
                 ) : (
                   <>
